@@ -1,0 +1,31 @@
+﻿
+
+<div>
+    <h2>Violators</h2>
+    <a href="~/Violation/AddUser" class="btn btn-primary">AddUser</a>
+</div>
+<div>
+    <table id="violatorTable"
+           class="table table-bordered table-hover table-responsive-xl">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>View Fines</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var v in ((List<Websters.Models.ApplicationUser>)ViewBag.violators))
+            {
+                <tr>
+                    <td>@v.Id</td>
+                    <td>@v.UserName</td>
+                    <td>@Html.ActionLink("View", "GetUserViolations", "Violation", new { Id = @v.Id, name = @v.UserName }, "")</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = @v.Id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

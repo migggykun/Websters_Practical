@@ -1,0 +1,36 @@
+﻿
+
+<div>
+    <h2>Payment History</h2>
+</div>
+<div>
+    <table id="violationTable"
+           class="table table-bordered table-hover table-responsive-xl">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Violator</th>
+                <th>Violation</th>
+                <th>Price</th>
+                <th>Amount Tendered</th>
+                <th>Committed On</th>
+                <th>Paid On</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var v in ((List<Websters.ViewModels.PaymentLogViewModel>)ViewBag.paymentLogs))
+            {
+                <tr>
+                    <td>@v.transactionID</td>
+                    <td>@v.violator</td>
+                    <td>@v.name</td>
+                    <td>@v.price</td>
+                    <td>@v.amountTendered</td>
+                    <td>@v.dateCommitted</td>
+                    <td>@v.datePaid</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

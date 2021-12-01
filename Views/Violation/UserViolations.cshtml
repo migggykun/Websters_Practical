@@ -1,0 +1,31 @@
+﻿
+
+<div>
+    <h2>@ViewBag.name 's Violation</h2>
+
+</div>
+<div>
+    <table id="violationTable"
+           class="table table-bordered table-hover table-responsive-xl">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Violations</th>
+                <th>Fine</th>
+                <th>Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var v in ((List<Websters.ViewModels.CommitedViolationViewModel>) ViewBag.violations))
+            {
+                <tr>
+                    <td>@v.Id</td>
+                    <td>@v.Violation.name</td>
+                    <td>@v.Violation.price</td>
+                    <td><a href="/Violation/Pay/@v.Id/@v.Violation.id" class="btn btn-primary" role="button">Click to Pay</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

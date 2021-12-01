@@ -1,0 +1,31 @@
+﻿
+
+<div>
+    <h2>Violations</h2>
+    <a href="~/Violation/AddViolation" class="btn btn-primary">Add Violation</a>
+</div>
+<div>
+    <table id="violationTable"
+           class="table table-bordered table-hover table-responsive-xl">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Violations</th>
+                <th>Fine</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var v in ((List<Websters.Models.Violation>) ViewBag.violations))
+            {
+                <tr>
+                    <td>@v.id</td>
+                    <td>@v.name</td>
+                    <td>@v.price</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new {id = @v.id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
